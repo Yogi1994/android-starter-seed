@@ -34,5 +34,8 @@ dependencies {
     compile 'android.arch.lifecycle:extensions:1.0.0'
     // compile was recently deprecated and replaced by implementation or api
     compile 'com.squareup.retrofit2:retrofit:2.3.0'
+    compile 'com.google.dagger:dagger:2.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.3.0'
     testCompile 'junit:junit:4.12'
+
 }

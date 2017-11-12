@@ -6,9 +6,11 @@ import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.wicklers.androidstarterseed.R;
 
@@ -23,16 +25,19 @@ public class UserProfileFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        String userId = getArguments().getString(UID_KEY);
-        viewModel = ViewModelProviders.of(this).get(UserProfileModel.class);
-        viewModel.getUser().observe((LifecycleOwner) this, new Observer<User>() {
+//        String userId = getArguments().getString(UID_KEY);
+        viewModel = ViewModelProviders.of((FragmentActivity) getActivity()).get(UserProfileModel.class);
+        viewModel.init("1");
+
+        viewModel.getUser().observe((LifecycleOwner) getActivity(), new Observer<User>() {
             @Override
             public void onChanged(@Nullable User user) {
                 // Update UI
+                Toast.makeText(getActivity(), user.getName(), Toast.LENGTH_LONG).show();
             }
         });
 
-        viewModel.init(userId);
+
     }
 
     @Override
