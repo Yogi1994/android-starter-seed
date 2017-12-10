@@ -1,10 +1,9 @@
 package com.wicklers.androidstarterseed;
 
 import android.support.v4.app.FragmentActivity;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import com.wicklers.androidstarterseed.UserProfile.UserProfileFragment;
+import com.wicklers.androidstarterseed.ui.user.UserProfileFragment;
 
 public class MainActivity extends FragmentActivity {
 

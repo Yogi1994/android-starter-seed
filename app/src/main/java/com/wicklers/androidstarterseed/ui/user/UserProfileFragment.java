@@ -1,4 +1,4 @@
-package com.wicklers.androidstarterseed.UserProfile;
+package com.wicklers.androidstarterseed.ui.user;
 
 import android.app.Fragment;
 import android.arch.lifecycle.LifecycleOwner;
@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.wicklers.androidstarterseed.R;
+import com.wicklers.androidstarterseed.vo.User;
 
 /**
  * Created by yogi on 11/11/17.
@@ -20,13 +21,13 @@ import com.wicklers.androidstarterseed.R;
 
 public class UserProfileFragment extends Fragment {
     private static final String UID_KEY = "uid";
-    private UserProfileModel viewModel;
+    private UserProfileViewModel viewModel;
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 //        String userId = getArguments().getString(UID_KEY);
-        viewModel = ViewModelProviders.of((FragmentActivity) getActivity()).get(UserProfileModel.class);
+        viewModel = ViewModelProviders.of((FragmentActivity) getActivity()).get(UserProfileViewModel.class);
         viewModel.init("1");
 
         viewModel.getUser().observe((LifecycleOwner) getActivity(), new Observer<User>() {

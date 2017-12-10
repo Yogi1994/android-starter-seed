@@ -1,7 +1,10 @@
-package com.wicklers.androidstarterseed.UserProfile;
+package com.wicklers.androidstarterseed.ui.user;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.ViewModel;
+
+import com.wicklers.androidstarterseed.vo.User;
+import com.wicklers.androidstarterseed.repository.UserRepository;
 
 import javax.inject.Inject;
 
@@ -10,15 +13,15 @@ import javax.inject.Inject;
  * Created by yogi on 11/11/17.
  */
 
-public class UserProfileModel extends ViewModel {
+public class UserProfileViewModel extends ViewModel {
 //    private User user;
     private LiveData<User> user;
     private UserRepository userRepo;
-    public UserProfileModel() {
+    public UserProfileViewModel() {
 
     }
     @Inject // UserRepository parameter is provided by Dagger 2
-    public UserProfileModel(UserRepository userRepo) {
+    public UserProfileViewModel(UserRepository userRepo) {
         this.userRepo = userRepo;
     }
 
@@ -29,7 +32,7 @@ public class UserProfileModel extends ViewModel {
             return;
         }
         userRepo = new UserRepository();
-        user = userRepo.getUser(userId);
+        user = userRepo.loadUser(userId);
     }
 
 

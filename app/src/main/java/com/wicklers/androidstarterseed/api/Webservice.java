@@ -1,6 +1,6 @@
-package com.wicklers.androidstarterseed.utils;
+package com.wicklers.androidstarterseed.api;
 
-import com.wicklers.androidstarterseed.UserProfile.User;
+import com.wicklers.androidstarterseed.vo.User;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

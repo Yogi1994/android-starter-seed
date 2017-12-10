@@ -18,7 +18,7 @@
     <fragment
         android:id="@+id/detailFragment"
         android:layout_width="match_parent"
-        class="com.wicklers.androidstarterseed.UserProfile.UserProfileFragment"
+        class="com.wicklers.androidstarterseed.ui.user.UserProfileFragment"
         tools:layout="@layout/user_profile"
         android:layout_height="match_parent" >
 
